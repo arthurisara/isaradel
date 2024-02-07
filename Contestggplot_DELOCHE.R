@@ -15,6 +15,8 @@ wt <- starwars$mass
 wt
 
 ## graphiques
+par(mfrow=c(5,5))
+
 hist(x = ht)
 hist(ht)
 
@@ -24,9 +26,10 @@ plot(x=wt, y=ht)
 boxplot(starwars$height~starwars$mass)
 
 names(starwars)
-par(mfrow=c(250,150))
-plot(x=starwars[,2], y= starwars[,3]), 
-
+par(mfrow=c(5,5))
+  plot(x=starwars.weight, y= starwars.height), 
   main="poids en fonction de la taille des persos de starwars" , 
   xlab("poids en kilos")
   ylab("taille en cm")
+
+  
