@@ -12,7 +12,7 @@ ggplot(data=starwars,
                       y = starwars$height, color = "red""))
 geom_point()
 
-## graph 2
+## graph 2 ##
   
 ggplot(data=starwars,
        mapping = aes (x = starwars$mass, y = starwars$height, color = red))
@@ -23,5 +23,12 @@ ggplot(data=starwars,
       y= "height"
   theme_minimal()
   geom_point()
+  
+  
+  
+  
+  
+  
+  
   
   
