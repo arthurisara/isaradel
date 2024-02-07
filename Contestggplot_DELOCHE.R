@@ -9,7 +9,7 @@ names(starwars)
 
 ggplot(data=starwars,
        mapping = aes (x = starwars$mass, 
-                      y = starwars$height, color = "red""))
+                      y = starwars$height, color = "red"))
 geom_point()
 
 ## graph 2 ##
