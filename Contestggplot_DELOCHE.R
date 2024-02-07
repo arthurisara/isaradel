@@ -1,33 +1,32 @@
-### données
+# Chargement des bibliothèques
 library(dplyr)
+library(ggplot2)
+
+# Chargement des données starwars
 data("starwars")
-names(starwars)
-## graphiques
 
-## graph 1
-
-ggplot(data=starwars,
-       mapping = aes (x = starwars$mass, 
-                      y = starwars$height, color = "red"))
-geom_point()
-
-## graph 2 ##
-  
-ggplot(data=starwars,
-       mapping = aes (x = starwars$mass, y = starwars$height, color = "red""))
-  geom_col()+
-  facet_wrap(-color)+
-  labs(title = "taille en fonction du poids du personnage")
-      x= "masse du perso"
-      y= "height"
+# Graphique 1
+ggplot(data = starwars,
+       aes(x = mass, y = height, color = "red")) +
+  geom_point() +
+  labs(title = "Taille en fonction du poids du personnage",
+       x = "Masse du personnage",
+       y = "Hauteur du personnage") +
   theme_minimal()
+
+# Graphique 2
+ggplot(data = starwars,
+       aes(x = mass, y = height, color = "red")) +
+  geom_col() +
+  labs(title = "Taille en fonction du poids du personnage",
+       x = "Masse du personnage",
+       y = "Hauteur du personnage") +
+  theme_minimal() +
   geom_point()
   
   
   
   
-  
-  
-  
+  }
   
   
