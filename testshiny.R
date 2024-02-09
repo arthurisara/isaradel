@@ -1,21 +1,21 @@
 install.packages("shiny")
-
 # Charger le package Shiny
 library(shiny)
 
-# Définir l'interface utilisateur (UI)
-ui <- fluidPage(
+# Définir l'interface utilisateur (IU)
+iu <- fluidPage(
   # Titre de l'application
-  titlePanel("Calcul du Carré"),
+  titlePanel("Calcul avec Puissance"),
   
   # Entrée : Boîte de texte pour saisir un nombre
   sidebarLayout(
     sidebarPanel(
-      textInput("number", "Entrez un nombre :", value = "5"),
+      textInput("number", "Entrez un nombre :", value = ""),
+      sliderInput("power", "Choisissez une puissance :", min = 1, max = 10, value = 2),
       actionButton("calculate", "Calculer")
     ),
     mainPanel(
-      # Résultat : Affiche le carré du nombre
+      # Résultat : Affiche le résultat du calcul
       verbatimTextOutput("result")
     )
   )
@@ -30,12 +30,15 @@ server <- function(input, output) {
     
     # Vérifier si l'entrée est un nombre valide
     if (!is.na(input_number)) {
-      # Calculer le carré du nombre
-      result <- input_number^2
+      # Obtenir la puissance choisie par l'utilisateur
+      input_power <- as.numeric(input$power)
+      
+      # Calculer le résultat
+      result <- input_number^input_power
       
       # Afficher le résultat dans l'output "result"
       output$result <- renderPrint({
-        paste("Le carré de", input_number, "est", result)
+        paste("Le résultat de", input_number, "élevé à la puissance", input_power, "est", result)
       })
     } else {
       # Afficher un message d'erreur si l'entrée n'est pas valide
@@ -47,4 +50,4 @@ server <- function(input, output) {
 }
 
 # Créer l'application Shiny
-shinyApp(ui, server)
+shinyApp(iu, server)
