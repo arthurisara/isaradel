@@ -3,7 +3,7 @@ library(shiny)
 
 # Définir l'interface utilisateur (UI)
 ui <- fluidPage(
-  titlePanel("Calculateur Puissant"),
+  titlePanel("Calculateur de Puissance"),
   
   sidebarLayout(
     sidebarPanel(
